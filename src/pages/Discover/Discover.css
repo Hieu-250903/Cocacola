@@ -1,0 +1,382 @@
+/* Discover.css */
+.discover-page {
+  animation: fadeIn 0.8s ease-in-out;
+  background-color: var(--light-gray);
+}
+
+/* Hero Enhancements */
+.discover-hero .hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  background-color: var(--coca-cola-red);
+  color: var(--white);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.animate-text {
+  background: linear-gradient(45deg, #fff, #f40009, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s infinite linear;
+  background-size: 200% 200%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Timeline Section */
+.timeline-section {
+  padding: 8rem 4%;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-section .section-title.text-white {
+  color: var(--white);
+}
+
+.timeline-section .section-title::after {
+  background-color: var(--white);
+}
+
+.timeline-section .section-subtitle {
+  color: #ccc;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.timeline-container {
+  max-width: 1000px;
+  margin: 4rem auto 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.timeline-nav {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.timeline-nav::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.2);
+  z-index: 0;
+}
+
+.timeline-btn {
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.2);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-btn:hover {
+  border-color: var(--coca-cola-red);
+  color: var(--coca-cola-red);
+}
+
+.timeline-btn.active {
+  background: var(--coca-cola-red);
+  border-color: var(--coca-cola-red);
+  color: var(--white);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(244, 0, 9, 0.5);
+}
+
+.timeline-content {
+  position: relative;
+  min-height: 200px;
+}
+
+.timeline-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+}
+
+.timeline-panel.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  position: relative;
+}
+
+.timeline-panel h3 {
+  font-size: 2.5rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.timeline-panel p {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.timeline-year-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Coke Studio Section */
+.coke-studio-section {
+  padding: 0;
+  background: var(--white);
+}
+
+.studio-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.studio-text {
+  padding: 6rem 8%;
+}
+
+.studio-label {
+  color: var(--coca-cola-red);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.studio-text h2 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--black);
+}
+
+.studio-text p {
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.studio-btn {
+  font-size: 1.1rem;
+  padding: 1rem 3rem;
+}
+
+.studio-image-wrapper {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.studio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 10s ease;
+}
+
+.studio-image-wrapper:hover .studio-img {
+  transform: scale(1.1);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(244, 0, 9, 0.9);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(244, 0, 9, 0.7);
+  animation: pulse 2s infinite;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  background: var(--white);
+}
+
+.play-button:hover .play-icon {
+  border-left-color: var(--coca-cola-red);
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 25px solid var(--white);
+  margin-left: 5px;
+  transition: border-color 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(244, 0, 9, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(244, 0, 9, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 0, 9, 0); }
+}
+
+/* Mixology Section */
+.mixology-section {
+  padding: 8rem 4%;
+  background-color: var(--light-gray);
+}
+
+.mixology-section .section-subtitle {
+  text-align: center;
+  color: var(--dark-gray);
+  margin-top: 1rem;
+}
+
+.mixology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.mixology-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+
+.mixology-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+}
+
+.mixology-img-wrapper {
+  height: 250px;
+  overflow: hidden;
+}
+
+.mixology-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mixology-card:hover .mixology-img-wrapper img {
+  transform: scale(1.08);
+}
+
+.mixology-info {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.mixology-info h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--black);
+}
+
+.mixology-info p {
+  color: var(--dark-gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.recipe-btn {
+  background: transparent;
+  border: 2px solid var(--black);
+  color: var(--black);
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.recipe-btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .studio-content {
+    grid-template-columns: 1fr;
+  }
+  .studio-image-wrapper {
+    min-height: 400px;
+  }
+  .timeline-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .timeline-nav::before {
+    display: none;
+  }
+}
