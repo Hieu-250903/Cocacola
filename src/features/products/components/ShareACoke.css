@@ -91,12 +91,25 @@
 
 .coke-can-body {
   height: 285px;
-  background: linear-gradient(to right, #a00000 0%, #F40009 25%, #F40009 75%, #700000 100%);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: inset -15px 0 25px rgba(0,0,0,0.4), inset 15px 0 25px rgba(255,255,255,0.4);
+}
+
+.coke-can-body.classic {
+  background: linear-gradient(to right, #a00000 0%, #F40009 25%, #F40009 75%, #700000 100%);
+}
+
+.coke-can-body.zero {
+  background: linear-gradient(to right, #111 0%, #333 25%, #111 75%, #000 100%);
+  box-shadow: inset -15px 0 25px rgba(0,0,0,0.6), inset 15px 0 25px rgba(255,255,255,0.2);
+}
+
+.coke-can-body.light {
+  background: linear-gradient(to right, #999 0%, #ddd 25%, #ccc 75%, #888 100%);
+  box-shadow: inset -15px 0 25px rgba(0,0,0,0.3), inset 15px 0 25px rgba(255,255,255,0.5);
 }
 
 .coke-label {
@@ -116,6 +129,14 @@
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
+.coke-can-body.light .coke-brand-name {
+  color: #F40009;
+}
+
+.coke-can-body.light .custom-name {
+  color: #333;
+}
+
 .custom-name {
   font-size: 3rem;
   font-weight: 900;
@@ -133,6 +154,202 @@
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(-3deg); }
   50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+/* Form Layout Styles */
+.coke-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+  position: relative;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0.95;
+  letter-spacing: 0.5px;
+}
+
+.coke-input-field,
+.coke-select-field,
+.coke-textarea-field {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.coke-input-field::placeholder,
+.coke-textarea-field::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Accessibility Focus States */
+.coke-input-field:focus,
+.coke-select-field:focus,
+.coke-textarea-field:focus {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.coke-select-field option {
+  background: #900000;
+  color: white;
+}
+
+.coke-textarea-field {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Error States */
+.coke-input-field.input-error,
+.coke-textarea-field.input-error {
+  border-color: #ff8888;
+  background: rgba(255, 100, 100, 0.15);
+}
+
+.coke-input-field.input-error:focus,
+.coke-textarea-field.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 136, 136, 0.4);
+}
+
+.error-text {
+  color: #ffcccc;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.error-text::before {
+  content: "⚠";
+  font-size: 0.9rem;
+}
+
+.error-summary-box {
+  background: rgba(255, 100, 100, 0.2);
+  border: 1px solid #ff8888;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  color: #ffdddd;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.char-count {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+  margin-top: -0.2rem;
+}
+
+/* Submit and Interaction States */
+.submit-btn {
+  padding: 1.1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F40009;
+  background: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.8rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  background: #fdfdfd;
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success Message Box */
+.success-message {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.success-message h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.success-summary {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.success-summary p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.success-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.reset-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.reset-btn:hover {
+  background: white;
+  color: #F40009;
 }
 
 @media (max-width: 768px) {
