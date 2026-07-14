@@ -12,8 +12,11 @@ Guidelines and commands for working with the Coca-Cola Landing Page application.
 
 ### React & TypeScript
 *   Use TypeScript for all components and utilities. Define clear interfaces/types for props.
+*   **Type-Only Imports**: Always use `import type { ... }` when importing interfaces, types, or signatures (e.g., `FormFields`) to prevent build failures under `verbatimModuleSyntax`.
 *   Prefer functional components with hooks (`useState`, `useEffect`, custom hooks).
 *   Use React 19 standard APIs.
+*   **Form Validation Isolation**: Isolate all form validations into pure utility files (e.g., `src/features/.../utils/validation.ts`) and accompany them with Vitest unit tests. Do not place validation regex or rules directly inside UI component files.
+*   **Form Input Accessibility**: Ensure all interactive form inputs have explicit `<label htmlFor="id">` links, `aria-invalid` state bindings, and `aria-describedby` referencing their respective error elements.
 *   File structure:
     *   Components in `src/components/` grouped by feature/concern (e.g. `common/`, `layout/`).
     *   Pages in `src/pages/` under named folders (e.g. `Home/index.tsx`, `Discover/index.tsx`, `Brands/index.tsx`).
