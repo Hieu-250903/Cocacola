@@ -1,17 +1,21 @@
+import { useScrollReveal } from '../../hooks/useScrollReveal';
+
 const Footer = () => {
+  const ref = useScrollReveal();
+
   return (
-    <footer className="footer">
-      <div className="footer-grid">
+    <footer className="footer" ref={ref}>
+      <div className="footer-grid reveal">
         <div>
-          <a href="/" className="footer-logo">Coca-Cola</a>
-          <p style={{ color: '#999', marginTop: '1rem' }}>
-            The Coca-Cola Company is a total beverage company, offering over 500 brands in more than 200 countries and territories.
+          <a href="/" className="footer-logo">Coca‑Cola</a>
+          <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '1rem', fontSize: '0.9rem', lineHeight: '1.7' }}>
+            The Coca‑Cola Company is a total beverage company, offering over 500 brands in more than 200 countries and territories.
           </p>
           <div className="social-links">
-            <a href="#" className="social-btn">FB</a>
-            <a href="#" className="social-btn">TW</a>
-            <a href="#" className="social-btn">IG</a>
-            <a href="#" className="social-btn">YT</a>
+            <a href="#" className="social-btn" aria-label="Facebook">FB</a>
+            <a href="#" className="social-btn" aria-label="Twitter">TW</a>
+            <a href="#" className="social-btn" aria-label="Instagram">IG</a>
+            <a href="#" className="social-btn" aria-label="YouTube">YT</a>
           </div>
         </div>
         <div className="footer-links-grid">
@@ -43,10 +47,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} The Coca-Cola Company. All rights reserved.</p>
-        <div style={{ display: 'flex', gap: '1rem' }}>
+        <p>&copy; {new Date().getFullYear()} The Coca‑Cola Company. All rights reserved.</p>
+        <div style={{ display: 'flex', gap: '1.5rem' }}>
           <a href="#">Do Not Sell My Personal Information</a>
-          <span>|</span>
           <a href="#">Sitemap</a>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { ArrowRight } from 'lucide-react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './Brands.css';
 
 import cocaColaZeroImg from '../../assets/images/coca-cola-zero.jpg';
@@ -11,10 +13,10 @@ const products = [
     id: 1,
     name: 'Coca-Cola Zero Sugar',
     image: cocaColaZeroImg,
-    shortDesc: 'The classic Coca-Cola taste you love, with zero sugar and zero calories.',
-    detail: "Experience the refreshing crispness of Coca-Cola Zero Sugar. All the flavor, none of the sugar. It's the perfect guilt-free refreshment for any time of the day.",
-    color: '#000000',
-    accent: '#F40009'
+    shortDesc: 'The classic Coca‑Cola taste you love, with zero sugar and zero calories.',
+    detail: "Experience the refreshing crispness of Coca‑Cola Zero Sugar. All the flavor, none of the sugar. It's the perfect guilt-free refreshment for any time of the day.",
+    color: '#0A0A0A',
+    accent: '#E61E2A'
   },
   {
     id: 2,
@@ -22,8 +24,8 @@ const products = [
     image: spriteImg,
     shortDesc: 'Crisp, refreshing, and clean-tasting lemon-lime soda.',
     detail: "Quench your thirst with the iconic, zesty lemon-lime flavor of Sprite. Known for its crisp, clean taste, it's perfectly balanced to cool you down.",
-    color: '#008C3A',
-    accent: '#00FF00'
+    color: '#00703C',
+    accent: '#7ED957'
   },
   {
     id: 3,
@@ -31,7 +33,7 @@ const products = [
     image: monsterImg,
     shortDesc: 'Unleash the beast with the intense, energizing power of Monster Energy.',
     detail: "Fuel your passion and power through your day. Tear into a can of the meanest energy drink on the planet, formulated to give you the boost you need.",
-    color: '#000000',
+    color: '#0A0A0A',
     accent: '#95C11E'
   },
   {
@@ -40,45 +42,47 @@ const products = [
     image: nutriboostImg,
     shortDesc: 'A delicious and nutritious milk-based beverage to boost your day.',
     detail: "Nourish your body and delight your taste buds with the creamy goodness of Nutriboost. A delightful blend of real milk and fruit juice, enriched with vitamins.",
-    color: '#F9A01B',
-    accent: '#FF0000'
+    color: '#E68A00',
+    accent: '#FFCC00'
   },
   {
     id: 5,
     name: 'Classic Coca-Cola',
     image: downloadImg,
     shortDesc: 'The original, iconic cola refreshment since 1886.',
-    detail: "Real magic in every sip. Enjoy the crisp, cold, and undeniably classic taste of Coca-Cola Original Taste, bringing people together with its unmistakable flavor.",
-    color: '#F40009',
+    detail: "Real magic in every sip. Enjoy the crisp, cold, and undeniably classic taste of Coca‑Cola Original Taste, bringing people together with its unmistakable flavor.",
+    color: '#E61E2A',
     accent: '#FFFFFF'
   }
 ];
 
 const Brands = () => {
+  const ref = useScrollReveal();
+
   return (
-    <div className="brands-page">
+    <div className="brands-page" ref={ref}>
       <section className="hero">
-        <img 
-          src="https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-          alt="Coca Cola Brands" 
+        <img
+          src="https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+          alt="Coca Cola Brands"
           className="hero-bg"
         />
         <div className="hero-content">
           <span className="hero-subtitle">Our Portfolio</span>
-          <h1 className="hero-title">Explore Our Brands</h1>
+          <h1 className="hero-title">Explore Our<br />Brands</h1>
           <p className="hero-description">
-            From iconic sparkling beverages to energy drinks and nutritious milk-based options, we have a drink for every moment. Discover the magic inside every bottle.
+            From iconic sparkling beverages to energy drinks and nutritious milk-based options, we have a drink for every moment.
           </p>
         </div>
       </section>
 
       <section className="section product-showcase">
-        <div className="section-header">
+        <div className="section-header reveal">
           <h2 className="section-title">Featured Products</h2>
           <p className="section-subtitle">Discover our diverse range of refreshing beverages.</p>
         </div>
-        
-        <div className="product-grid">
+
+        <div className="product-grid stagger">
           {products.map(product => (
             <div className="product-card" key={product.id} style={{ '--product-color': product.color, '--product-accent': product.accent } as React.CSSProperties}>
               <div className="product-image-container">
@@ -90,7 +94,9 @@ const Brands = () => {
                 <p className="product-short-desc">{product.shortDesc}</p>
                 <div className="product-details">
                   <p>{product.detail}</p>
-                  <button className="btn-explore">Explore <span className="arrow">&rarr;</span></button>
+                  <button className="btn-explore">
+                    Explore <ArrowRight size={16} className="arrow-icon" />
+                  </button>
                 </div>
               </div>
             </div>
