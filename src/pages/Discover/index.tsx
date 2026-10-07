@@ -4,7 +4,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './Discover.css';
 
 const timelineData = [
-  { year: '1886', title: 'The Beginning', desc: 'John S. Pemberton creates the original formula for Coca‑Cola in Atlanta, Georgia. A pharmacist's experiment becomes a global phenomenon.', icon: '🧪' },
+  { year: '1886', title: 'The Beginning', desc: "John S. Pemberton creates the original formula for Coca‑Cola in Atlanta, Georgia. A pharmacist's experiment becomes a global phenomenon.", icon: '🧪' },
   { year: '1915', title: 'The Contour Bottle', desc: 'The iconic contour bottle is patented to ensure Coca‑Cola is recognizable even in the dark — or by touch alone.', icon: '🍾' },
   { year: '1982', title: 'Diet Coke', desc: 'Diet Coke is introduced, becoming the first extension of the Coca‑Cola trademark beyond the original.', icon: '✨' },
   { year: '2005', title: 'Coca‑Cola Zero', desc: 'Coca‑Cola Zero is launched, offering the authentic Coca‑Cola taste with zero calories.', icon: '🥤' },
